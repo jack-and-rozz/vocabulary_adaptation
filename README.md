@@ -97,7 +97,7 @@ tgt_domain=aspec_sp
 ```
 
 ## Optional
-* **Data augmentation with back-translation **
+* **Data augmentation with back-translation**
 ```bash
  # Data augmentation part
  ./setup_monolingual_data.sh jesc_sp16000@aspec_sp16000.bt_aug.v_jesc_sp16000_all.100k translation
