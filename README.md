@@ -4,15 +4,14 @@
 
 ```
 pip install -r requirements.txt
-
-git clone https://github.com/jack-and-rozz/fairseq
-
 cd tools
 git clone https://github.com/moses-smt/mosesdecoder.git 
 git clone https://github.com/tmikolov/word2vec.git
 git clone https://github.com/jyori112/llm.git
 git clone https://github.com/rpryzant/proxy-a-distance.git
 cd ..
+
+As for requirements to use fairseq, please refer to https://github.com/pytorch/fairseq.
 ```
 
 ## Reproduction
