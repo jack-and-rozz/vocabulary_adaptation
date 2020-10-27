@@ -1,0 +1,11 @@
+.#*
+nohup.out
+__pycache__
+_legacy
+.nfs*
+fairseq
+
+checkpoints
+datasets
+tools
+
