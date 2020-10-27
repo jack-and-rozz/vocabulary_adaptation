@@ -4,6 +4,8 @@
 As for requirements for using fairseq, please refer to https://github.com/pytorch/fairseq.
 ```
 pip install -r requirements.txt
+pip install -r fairseq/requirements.txt
+
 cd tools
 git clone https://github.com/moses-smt/mosesdecoder.git 
 git clone https://github.com/tmikolov/word2vec.git
