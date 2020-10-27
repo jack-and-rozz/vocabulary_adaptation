@@ -37,21 +37,21 @@ cd ..
  ./preprocess.sh aspec_sp16000.inD.100k translation
 ```
 
-* **<Out-domain>** Train a model by all source domain training set and evaluate it in target domain.
+* **Out-domain:** Train a model by all source domain training set and evaluate it in target domain.
 ```bash
  ./train.sh jesc_sp16000.baseline translation
  ./preprocess.sh jesc_sp16000@aspec_sp16000.noadapt translation
  ./generate.sh jesc_sp16000@aspec_sp16000.noadapt translation
 ```
 
-* **<In-domain>** Train a model by small target domain fine-tuning set (e.g., 100k) and evaluate it in target domain.
+* **In-domain:** Train a model by small target domain fine-tuning set (e.g., 100k) and evaluate it in target domain.
 ```bash
  ./train.sh aspec_sp16000.inD.100k translation
  ./generate.sh aspec_sp16000.inD.100k translation
 ```
 
 
-* **<Multi-domain learning>** Train a model by a concatenation of the source domain training set and the target domain fine-tuning set.
+* **Multi-domain learning:** Train a model by a concatenation of the source domain training set and the target domain fine-tuning set.
 ```bash
  ./setup_multidomain_data.sh jesc_sp16000@aspec_sp16000.mdl.domainmixing.100k translation
  ./train_cbow.sh jesc_sp16000@aspec_sp16000.mdl.domainmixing.100k translation
@@ -60,27 +60,27 @@ cd ..
  ./generate.sh jesc_sp16000@aspec_sp16000.mdl.domainmixing.100k translation
 ```
 
-* **<Fine-tuning w/ src-domain vocab.>** Simply apply fine-tuning to the source domain model with no modification (requires the *Out-domain* model trained beforehand).
+* **Fine-tuning w/ src-domain vocab.:** Simply apply fine-tuning to the source domain model with no modification (requires the *Out-domain* model trained beforehand).
 ```bash
  ./train.sh jesc_sp16000@aspec_sp16000.ft.v_jesc_sp16000_all.100k translation
  ./generate.sh jesc_sp16000@aspec_sp16000.ft.v_jesc_sp16000_all.100k translation
 ```
 
-* **<Fine-tuning w/ tgt-domain vocab.>** Train a source-domain model with target-domain vocabulary constructed from target-domain monolingual data.
+* **Fine-tuning w/ tgt-domain vocab.:** Train a source-domain model with target-domain vocabulary constructed from target-domain monolingual data.
 ```bash
  ./train.sh jesc_sp16000.outD.v_aspec_sp16000_100kmono.all translation
  ./train.sh jesc_sp16000@aspec_sp16000.ft.v_aspec_sp16000_100kmono.100k translation
  ./generate.sh jesc_sp16000@aspec_sp16000.ft.v_aspec_sp16000_100kmono.100k translation
 ```
 
-* **<Finetuning w/ VA-Linear>** Apply fine-tuning with vocabulary adaptation (by linear transformation) to the source domain model. (requires a *Out-domain* trained beforehand). 
+* **Finetuning w/ VA-Linear:** Apply fine-tuning with vocabulary adaptation (by linear transformation) to the source domain model. (requires a *Out-domain* trained beforehand). 
 ```bash
  ./map_embeddings.sh jesc_sp16000@aspec_sp16000.va.v_aspec_sp16000_100kmono.linear-idt.100k translation
  ./train.sh jesc_sp16000@aspec_sp16000.va.v_aspec_sp16000_100kmono.linear-idt.100k translation
  ./generate.sh jesc_sp16000@aspec_sp16000.va.v_aspec_sp16000_100kmono.linear-idt.100k translation
 ```
 
-* **<Finetuning w/ VA-LLM>** Apply fine-tuning with vocabulary adaptation (by LLM)to the source domain model. (requires a *Out-domain* trained beforehand). 
+* **Finetuning w/ VA-LLM:** Apply fine-tuning with vocabulary adaptation (by LLM)to the source domain model. (requires a *Out-domain* trained beforehand). 
 ```bash
  ./map_embeddings.sh jesc_sp16000@aspec_sp16000.va.v_aspec_sp16000_100kmono.llm-idt.nn10.100k translation
  ./train.sh jesc_sp16000@aspec_sp16000.va.v_aspec_sp16000_100kmono.llm-idt.nn10.100k translation
