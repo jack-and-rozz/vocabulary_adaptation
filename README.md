@@ -1,7 +1,7 @@
 # Vocabulary Adaptation for Domain Adaptation in Neural Machine Translation
 
 ## Download tools
-
+As for requirements for using fairseq, please refer to https://github.com/pytorch/fairseq.
 ```
 pip install -r requirements.txt
 cd tools
@@ -10,8 +10,6 @@ git clone https://github.com/tmikolov/word2vec.git
 git clone https://github.com/jyori112/llm.git
 git clone https://github.com/rpryzant/proxy-a-distance.git
 cd ..
-
-As for requirements to use fairseq, please refer to https://github.com/pytorch/fairseq.
 ```
 
 ## Reproduction
