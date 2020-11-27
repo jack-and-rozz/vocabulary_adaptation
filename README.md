@@ -123,4 +123,19 @@ tgt_domain=aspec_sp
 ## Citation
 If you use this code for research, please cite the following paper.
 ```
+@inproceedings{sato-etal-2020-vocabulary,
+    title = "Vocabulary Adaptation for Domain Adaptation in Neural Machine Translation",
+    author = "Sato, Shoetsu  and
+      Sakuma, Jin  and
+      Yoshinaga, Naoki  and
+      Toyoda, Masashi  and
+      Kitsuregawa, Masaru",
+    booktitle = "Findings of the Association for Computational Linguistics: EMNLP 2020",
+    month = nov,
+    year = "2020",
+    address = "Online",
+    publisher = "Association for Computational Linguistics",
+    url = "https://www.aclweb.org/anthology/2020.findings-emnlp.381",
+    pages = "4269--4279",
+}
 ```
