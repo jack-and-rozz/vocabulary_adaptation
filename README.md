@@ -16,7 +16,8 @@ cd ..
 
 ## Reproduction
 
-* **Setup:** Prepare corpora, subword tokenization, embeddings, and binarized dataset in each domain (e.g., from JESC to ASPEC domain for En-Ja translation).
+* **Setup:** Prepare corpora, subword tokenization, embeddings, and binarized dataset in each domain 
+This is an examples of DAfrom JESC to ASPEC for En-Ja translation
 ```bash
  # Download the dataset of each domain. When trying another dataset, you need to write a script to prepare it by yourself and add the dataset path to 'const.sh'.
 
