@@ -15,12 +15,16 @@ cd ..
 ```
 
 ## Reproduction
+This is an example of DA from JESC to ASPEC for En-Ja translation.
 
-* **Setup:** Prepare corpora, subword tokenization, embeddings, and binarized dataset in each domain 
-This is an examples of DAfrom JESC to ASPEC for En-Ja translation
+* **Setup:** Prepare corpora, subword tokenization, embeddings, and binarized dataset in each domain. 
 ```bash
  # Download the dataset of each domain. When trying another dataset, you need to write a script to prepare it by yourself and add the dataset path to 'const.sh'.
+ 
+ # Download JESC data from https://nlp.stanford.edu/projects/jesc/data/split.tar.gz
+ # Download ASPEC data from https://jipsti.jst.go.jp/aspec/
 
+ # Process data. 
  ./scripts/dataset/jesc/setup_dataset.sh
  ./scripts/dataset/aspec/setup_dataset.sh 
 
