@@ -1,5 +1,9 @@
 # Vocabulary Adaptation for Domain Adaptation in Neural Machine Translation
 
+## Requirements
+- Python 3.7.3 (other versions can work)
+- Sentencepiece 0.1.83 (https://github.com/google/sentencepiece)
+
 ## Download tools
 As for requirements for using fairseq, please refer to https://github.com/pytorch/fairseq.
 ```
@@ -24,7 +28,7 @@ This is an example of DA from JESC to ASPEC for En-Ja translation.
  # Download JESC data from https://nlp.stanford.edu/projects/jesc/data/split.tar.gz
  # Download ASPEC data from https://jipsti.jst.go.jp/aspec/
 
- # Process data. 
+ # Process data (tokenization and truecasing). 
  ./scripts/dataset/jesc/setup_dataset.sh
  ./scripts/dataset/aspec/setup_dataset.sh 
 
