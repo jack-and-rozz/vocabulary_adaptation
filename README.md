@@ -45,6 +45,9 @@ This is an example of DA from JESC to ASPEC for En-Ja translation.
  ./preprocess.sh aspec_sp16000.inD.100k translation
 ```
 
+## Explanation of each setting: 
+The scripts used below for our experiments parse the given name (e.g., jesc_sp16000.baseline) and get parameters related to preprocessing, training, and testing.
+
 * **Out-domain:** Train a model by all source domain training set and evaluate it in target domain.
 ```bash
  ./train.sh jesc_sp16000.baseline translation
