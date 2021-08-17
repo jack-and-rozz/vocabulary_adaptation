@@ -2,6 +2,7 @@
 
 . ./const.sh
 
+root_dir=$(pwd)
 script_dir=$(cd $(dirname $0); pwd)
 jesc_data_root=dataset/jesc-je
 original_dir=$jesc_data_root/original
@@ -21,15 +22,21 @@ fi
 for dtype in ${dtypes[@]}; do
     if [ ! -e $original_dir/$dtype.en ] || [ ! -e $original_dir/$dtype.ja ]; then
 	if [ ! -e $original_dir/split ]; then
-	    echo "Download split.tar.gz from https://nlp.stanford.edu/projects/jesc/data/split.tar.gz and decompress it to $original_dir."
-	    exit 1
+	    if [ -e $original_dir/split.tar.gz ]; then
+		cd $original_dir
+		tar -zxvf split.tar.gz
+		cd $root_dir
+	    else
+		echo "Error: $original_dir/split was not found. This script requires concatenated parallel corpora ($original_dir/train,  $original_dir/dev, and $original_dir/test)." 
+		echo "Download split.tar.gz from https://nlp.stanford.edu/projects/jesc/data/split.tar.gz and decompress it to $jesc_data_root."
+		exit 1
+	    fi
 	fi
 	cut -f1 $original_dir/split/$dtype > $original_dir/$dtype.en &
 	cut -f2 $original_dir/split/$dtype > $original_dir/$dtype.ja &
     fi
 done
 wait 
-
 
 # Tokenization
 if [ ! -e $tokenized_dir ]; then

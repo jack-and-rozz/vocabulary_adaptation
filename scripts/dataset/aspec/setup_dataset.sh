@@ -13,13 +13,14 @@ truecased_dir=$aspec_data_root/processed.kytea-moses.truecased
 dtypes=(train dev test)
 
 
-if [ ! -e $original_dir/train-1.ja ] || [ ! -e $original_dir/dev.ja ] || [ ! -e $original_dir/test.ja ]; then
+if [ ! -e $original_dir/train-1.ja ] || [ ! -e $original_dir/train-2.ja ] || [ ! -e $original_dir/dev.ja ] || [ ! -e $original_dir/test.ja ]; then
+    echo "$original_dir/*.ja or $original_dir/*.en were not found."
     echo "Download data from http://lotus.kuee.kyoto-u.ac.jp/ASPEC/ and move the train-{1,2,3}/dev/test files to $original_dir."
     exit 1
 fi
 
 
-# In this study, the first and the second portions of the training data were used due to the low quality of the third portion.
+# In experiments, only the first and the second portions of the training data were used due to the low quality of the third portion.
 if [ ! -e $original_dir/train.en ]; then
     cat $original_dir/train-1.en > $original_dir/train.en
     cat $original_dir/train-2.en >> $original_dir/train.en 
