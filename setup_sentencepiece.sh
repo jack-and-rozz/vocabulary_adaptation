@@ -118,7 +118,6 @@ if [ ! -e $spm_model_dir ]; then
     mkdir -p $spm_model_dir
 fi
 
-
 if [ $task == translation ]; then
     for lang in ${langs[@]}; do
 	if [ ! -e $spm_model_dir/spm.$lang.model ]; then

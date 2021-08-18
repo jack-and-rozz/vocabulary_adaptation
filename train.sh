@@ -38,6 +38,12 @@ fixed=$(parse_fixed $mode)
 src_vocab_size=$(parse_src_vocab_size $mode)
 tgt_vocab_size=$(parse_tgt_vocab_size $mode)
 
+src_spm_domain=$(parse_spm_domain $mode src)
+src_spm_mono_size=$(parse_spm_mono_size $mode src)
+tgt_spm_domain=$(parse_spm_domain $mode tgt)
+tgt_spm_mono_size=$(parse_spm_mono_size $mode tgt)
+
+
 echo "task="$task
 echo "size="$size
 echo "src_domain="$src_domain
@@ -481,6 +487,11 @@ if [ ! -z $fixed ]; then
     emb_options="$emb_options --disable-training-embeddings"
 fi
 
+# Prepare in-domain monolingual data if needed
+if [[ $tgt_spm_mono_size =~ mono ]];then
+    ./setup_monolingual_data.sh $mode $task
+fi
+
 if [[ $tgt_domain =~ _${sp_suffix} ]] && [[ ! $mode =~ $multidomain_ext ]] && [[ ! $mode =~ $backtranslation_ext ]]; then
     ./setup_sentencepiece.sh $mode $task
 fi
@@ -565,6 +576,9 @@ fi
 if [ ! -z $_update_freq ]; then
     update_freq=$_update_freq
 fi
+
+
+echo "Preprocessing is done."
 
 echo "Start training $mode..."
 # Start training.

@@ -9,7 +9,7 @@ bydomain_dir=$opus_koehn_data_root/processed
 
 # They do not distribute the preprocessed setting so the downloading process is omitted. Here we just assume we have preprocessed (splitted, tokenized, and truecased) datasets in 'dataset/koehn17six'.
 
-if [ ! -e dataset/koehn17six/original ]; then
+if [ ! -e $archive_dir ]; then
     echo "$archive_dir was not found. Please manually download the dataset from URL described in the README.md."
     exit 1
 fi

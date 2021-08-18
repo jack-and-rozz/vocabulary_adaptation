@@ -19,33 +19,28 @@ cd ..
 ```
 
 ## Reproduction
-This is an example of DA from JESC to ASPEC for En-Ja translation. If you would like to conduct De-En experiments, change "jesc" and "aspec" in the following commands into "opus_it" and "opus_acquis", respectively.
+- This is an example of DA from JESC to ASPEC for En-Ja translation. If you would like to conduct De-En experiments, change "jesc" and "aspec" in the following commands into "opus_it" and "opus_acquis", respectively.
+- The scripts used below for our experiments parse the given name (e.g., jesc_sp16000.outD.all) and get parameters related to preprocessing, training, and testing. 
 
 ### Data URL
-
+You need to manually download the datasets.
 - JESC (En-Ja): https://nlp.stanford.edu/projects/jesc/data/split.tar.gz
 - ASPEC (En-Ja): https://jipsti.jst.go.jp/aspec
 - OPUS (De-En): https://drive.google.com/file/d/1S48LlMa9RYR9JHQO_KbHdJF8lwVOpLVH/view?usp=sharing 
 
-### Setup Prepare corpora, subword tokenization, embeddings, and binarized dataset in each domain. 
-
+### Setup: 
 ```bash
- # Download the dataset of each domain. When trying another dataset, you need to write a script to prepare it by yourself and add the dataset path to 'const.sh'.
-
- # Download JESC data from "https://nlp.stanford.edu/projects/jesc/data/split.tar.gz"
- # Download ASPEC data from "https://jipsti.jst.go.jp/aspec" (need a request but it will be accepted soon).
-
  # Process data (tokenization and truecasing). 
  ./scripts/dataset/jesc/setup_dataset.sh
  ./scripts/dataset/aspec/setup_dataset.sh 
 
  # Train sentencepiece for each domain.
  ./setup_sentencepiece.sh jesc_sp16000.outD.all translation
- ./setup_sentencepiece.sh aspec_sp16000.inD.all translation
+ ./setup_sentencepiece.sh aspec_sp16000.inD.100k translation
  
  # Train CBoW vectors for each domain.
  ./train_cbow.sh jesc_sp16000.outD.all translation
- ./train_cbow.sh aspec_sp16000.inD.all translation  
+ ./train_cbow.sh aspec_sp16000.inD.100k translation  
 
  # Binarize the datasets for fairseq.
  ./preprocess.sh jesc_sp16000.outD.all translation
@@ -53,11 +48,10 @@ This is an example of DA from JESC to ASPEC for En-Ja translation. If you would 
 ```
 
 ## Explanation of each setting: 
-The scripts used below for our experiments parse the given name (e.g., jesc_sp16000.baseline) and get parameters related to preprocessing, training, and testing. This is an example for En-Ja translation.
 
 * **Out-domain:** Train a model by all source domain training set and evaluate it in target domain.
 ```bash
- ./train.sh jesc_sp16000.baseline translation
+ ./train.sh jesc_sp16000.outD.all translation
  ./preprocess.sh jesc_sp16000@aspec_sp16000.noadapt translation
  ./generate.sh jesc_sp16000@aspec_sp16000.noadapt translation
 ```

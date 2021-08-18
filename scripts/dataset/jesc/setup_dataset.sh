@@ -4,7 +4,7 @@
 
 root_dir=$(pwd)
 script_dir=$(cd $(dirname $0); pwd)
-jesc_data_root=dataset/jesc-je
+jesc_data_root=$dataset_root/jesc-je
 original_dir=$jesc_data_root/original
 tokenized_dir=$jesc_data_root/processed.kytea-moses
 truecased_dir=$jesc_data_root/processed.kytea-moses.truecased
@@ -12,7 +12,6 @@ truecased_dir=$jesc_data_root/processed.kytea-moses.truecased
 # You need to download split.tar.gz from https://nlp.stanford.edu/projects/jesc/data/split.tar.gz and decompress it to $original_dir.
 
 dtypes=(train dev test)
-
 
 # Split the original archives into train.en, train.ja, dev.en, ... 
 if [ ! -e $original_dir ]; then
