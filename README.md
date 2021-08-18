@@ -19,9 +19,15 @@ cd ..
 ```
 
 ## Reproduction
-This is an example of DA from JESC to ASPEC for En-Ja translation.
+This is an example of DA from JESC to ASPEC for En-Ja translation. If you would like to conduct De-En experiments, change "jesc" and "aspec" in the following commands into "opus_it" and "opus_acquis", respectively.
+
+### Data URL
+- JESC (En-Ja): https://nlp.stanford.edu/projects/jesc/data/split.tar.gz
+- ASPEC (En-Ja): https://jipsti.jst.go.jp/aspec
+- OPUS (De-En): https://drive.google.com/file/d/1S48LlMa9RYR9JHQO_KbHdJF8lwVOpLVH/view?usp=sharing 
 
 * **Setup:** Prepare corpora, subword tokenization, embeddings, and binarized dataset in each domain. 
+
 ```bash
  # Download the dataset of each domain. When trying another dataset, you need to write a script to prepare it by yourself and add the dataset path to 'const.sh'.
 
