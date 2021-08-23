@@ -2,9 +2,9 @@
 
 root_dir=$(pwd)
 script_dir=$(cd $(dirname $0); pwd)
-opus_koehn_data_root=$root_dir/$dataset_root/koehn17six
-archive_dir=$opus_koehn_data_root/original
-bydomain_dir=$opus_koehn_data_root/processed
+# opus_koehn_data_root=$root_dir/$dataset_root/koehn17six
+archive_dir=$opus_data_root/original
+bydomain_dir=$opus_data_root/processed
 
 
 # They do not distribute the preprocessed setting so the downloading process is omitted. Here we just assume we have preprocessed (splitted, tokenized, and truecased) datasets in 'dataset/koehn17six'.

@@ -6,7 +6,7 @@
 . ./const.sh
 
 script_dir=$(cd $(dirname $0); pwd)
-aspec_data_root=$dataset_root/aspec-je
+# aspec_data_root=$dataset_root/aspec-je
 original_dir=$aspec_data_root/original
 tokenized_dir=$aspec_data_root/processed.kytea-moses
 truecased_dir=$aspec_data_root/processed.kytea-moses.truecased

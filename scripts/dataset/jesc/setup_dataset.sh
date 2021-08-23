@@ -4,7 +4,7 @@
 
 root_dir=$(pwd)
 script_dir=$(cd $(dirname $0); pwd)
-jesc_data_root=$dataset_root/jesc-je
+# jesc_data_root=$dataset_root/jesc-je
 original_dir=$jesc_data_root/original
 tokenized_dir=$jesc_data_root/processed.kytea-moses
 truecased_dir=$jesc_data_root/processed.kytea-moses.truecased
