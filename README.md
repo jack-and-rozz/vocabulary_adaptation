@@ -37,6 +37,7 @@ cd ..
 
 ### Training
 ```
+model_name=jesc_sp16000.outD.all
 ./train.sh $model_name translation
 
 # The model names corresponding to each setting in the original paper (Table 3) are as follows.
@@ -46,6 +47,7 @@ cd ..
 # - Out-domain (w/ ASPEC 100k vocab): jesc_sp16000.outD.v_aspec_sp16000_100k.all (preparing this model is required to train FT-tgtV)
 # - In-domain : aspec_sp16000.inD.100k
 
+# - MDL: jesc_sp16000@aspec_sp16000.mdl.domainmixing.100k
 # - FT-srcV: jesc_sp16000@aspec_sp16000.ft.v_jesc_sp16000_all.100k 
 # - FT-tgtV: jesc_sp16000@aspec_sp16000.ft.v_aspec_sp16000_100k.100k 
 # - VA-CBoW: jesc_sp16000@aspec_sp16000.va.v_aspec_sp16000_100k.nomap.100k
