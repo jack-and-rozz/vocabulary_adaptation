@@ -577,8 +577,9 @@ if [ ! -z $_update_freq ]; then
     update_freq=$_update_freq
 fi
 
-
-echo "Preprocessing is done."
+# For debugging
+# echo "Preprocessing is done."
+# exit 1
 
 echo "Start training $mode..."
 # Start training.
