@@ -5,6 +5,6 @@ _legacy
 .nfs*
 
 checkpoints
-datasets
+dataset
 tools
 
