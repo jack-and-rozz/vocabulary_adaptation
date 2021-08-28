@@ -67,7 +67,7 @@ tgt_domain=aspec_sp
 ./generate_many.sh $src_domain $tgt_domain $task
 ./summarize.sh $src_domain $tgt_domain $task > exp_logs/jesc2aspec.summary
 
-# When evaluating a model (outputs will be generated to `${model_root}/${model_name}/tests/${domain_name}.output`)
+# When evaluating a model (outputs will be generated to `${model_root}/${model_name}/tests/${domain_name}.outputs`)
 ./generate.sh $model_name $task
 
 ```
