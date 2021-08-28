@@ -326,7 +326,7 @@ get_data_dir(){
     elif [[ $mode =~ \.$backtranslation_ext\. ]]; then
 	echo "Invalid mode: $mode"
 	exit 1
-    else 
+    else
 	data_dir=$base_data_dir/$sp_suffix/v_${src_spm_domain}_${src_spm_mono_size}
     fi
     echo $data_dir

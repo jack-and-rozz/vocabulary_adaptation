@@ -24,8 +24,8 @@ fi
 
 src_domain=$(parse_src_domain $mode)
 tgt_domain=$(parse_tgt_domain $mode)
-src_lang=$(get_src_lang $tgt_domain $task) 
-tgt_lang=$(get_tgt_lang $tgt_domain $task) 
+src_lang=$(get_src_lang $tgt_domain $task)
+tgt_lang=$(get_tgt_lang $tgt_domain $task)
 
 src_data_dir=$(get_data_dir $mode $src_domain)
 tgt_data_dir=$(get_data_dir $mode $tgt_domain)
@@ -34,6 +34,18 @@ tgt_data_dir=$(get_data_dir $mode $tgt_domain)
 if [[ $mode =~ \.$outdomain_ext\.v_${tgt_domain} ]]; then
     spm_model_dir=$tgt_data_dir
     data_dir=$src_data_dir
+elif [[ $mode =~ noadapt ]]; then
+    if [[ $task == translation ]]; then
+	langs=($src_lang $tgt_lang)
+    else
+	langs=($src_lang)
+    fi
+    for lang in ${langs[@]}; do
+	ln -sf \
+	   $root_dir/$src_data_dir/dict.$lang.txt \
+	   $tgt_data_dir/dict.$lang.txt
+    done
+    exit 1 # Just make links to the src-domain dictionaries
 elif [[ $mode =~ \.$outdomain_ext\. ]]; then
     spm_model_dir=$src_data_dir
     data_dir=$src_data_dir

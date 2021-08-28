@@ -27,7 +27,7 @@ cd ..
 # You first need to manually download datasets from the following URLs and place them to the directories specified in const.sh.
 # JESC (En-Ja): https://nlp.stanford.edu/projects/jesc/data/split.tar.gz
 # ASPEC (En-Ja): https://jipsti.jst.go.jp/aspec
-# OPUS (De-En): https://drive.google.com/file/d/1S48LlMa9RYR9JHQO_KbHdJF8lwVOpLVH/view?usp=sharing 
+# OPUS (De-En): https://drive.google.com/file/d/1S48LlMa9RYR9JHQO_KbHdJF8lwVOpLVH/view?usp=sharing
 
  # Tokenization, truecasing, and placing data to the directory defined by const.sh.
  ./scripts/dataset/jesc/setup_dataset.sh  # En-Ja
@@ -48,8 +48,8 @@ model_name=jesc_sp16000.outD.all
 # - In-domain : aspec_sp16000.inD.100k
 
 # - MDL: jesc_sp16000@aspec_sp16000.mdl.domainmixing.100k
-# - FT-srcV: jesc_sp16000@aspec_sp16000.ft.v_jesc_sp16000_all.100k 
-# - FT-tgtV: jesc_sp16000@aspec_sp16000.ft.v_aspec_sp16000_100k.100k 
+# - FT-srcV: jesc_sp16000@aspec_sp16000.ft.v_jesc_sp16000_all.100k
+# - FT-tgtV: jesc_sp16000@aspec_sp16000.ft.v_aspec_sp16000_100k.100k
 # - VA-CBoW: jesc_sp16000@aspec_sp16000.va.v_aspec_sp16000_100k.nomap.100k
 # - VA-Linear: jesc_sp16000@aspec_sp16000.va.v_aspec_sp16000_100k.linear-idt.100k
 # - VA-LLM: jesc_sp16000@aspec_sp16000.va.v_aspec_sp16000_100k.llm-idt.nn10.100k
@@ -59,12 +59,18 @@ model_name=jesc_sp16000.outD.all
 ### Evaluation
 
 ```
+# When evaluating all models...
 mkdir exp_logs
 task=translation
 src_domain=jesc_sp
 tgt_domain=aspec_sp
 ./generate_many.sh $src_domain $tgt_domain $task
-./summarize.sh $src_domain $tgt_domain $task > exp_logs/jesc2aspec.summary 
+./summarize.sh $src_domain $tgt_domain $task > exp_logs/jesc2aspec.summary
+
+# When evaluating a model
+task=translation
+model_name=aspec_sp16000.inD.100k
+./generate.sh $model_name $task
 ```
 
 

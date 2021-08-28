@@ -33,8 +33,8 @@ tgt_domain=$(parse_tgt_domain $mode)
 src_domain=$(remove_tok_suffix $src_domain)
 tgt_domain=$(remove_tok_suffix $tgt_domain)
 
-src_lang=$(get_src_lang $tgt_domain $task) 
-tgt_lang=$(get_tgt_lang $tgt_domain $task) 
+src_lang=$(get_src_lang $tgt_domain $task)
+tgt_lang=$(get_tgt_lang $tgt_domain $task)
 langs=($src_lang $tgt_lang)
 
 size=$(parse_size $mode)
@@ -190,4 +190,3 @@ for lang in ${langs[@]}; do
 	fi
     fi
 done
-wait

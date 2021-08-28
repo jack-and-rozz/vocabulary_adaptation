@@ -31,9 +31,12 @@ fi
 # Out-domain
 if [ $src_domain != $tgt_domain ]; then
     ./setup_sentencepiece.sh $direction.noadapt.all $task
+    ./train_cbow.sh $direction.noadapt.all $task
     ./preprocess.sh $direction.noadapt.all $task
     ./generate.sh $direction.noadapt.all $task
 fi
+
+# Just run ./generate.sh for each model in $model_root
 for mode in $(ls $ckpt_root | grep $tgt_domain); do
     echo $mode
     if [[ $mode =~ .bak ]]; then
